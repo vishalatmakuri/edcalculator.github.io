@@ -1,0 +1,26 @@
+<document
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<title>Financial calculator</title>
+</head>
+<body>
+	<form id='income'>
+	<div> your income		<input type='number' id='totalincome' value="0" onchange='slidechange()'/></div>
+	</br>
+	<div id="hval"> slide for your house size</div>
+	<input id='household' type= 'range' min='1' max='8' value='1' step='1' oninput='slidechange()' onchange='slidechange()'></input>
+	</form>
+	</br>
+	<div id="range"></div>
+	<script type="text/javascript">
+		var incomeTable={1:11670,2:15730,3:19790,4:23850,5:27910,6:31970,7:36030,8:40090};
+		var slidechange = function () {
+			var income = $('#totalincome').val()	
+		 	var result = incomeTable[$('#household').val()]
+		 	$('#range').html('You are in the '+Math.round(income/(result/100))+' income range.')	
+		};
+	</script>
+</body>
+</html>
